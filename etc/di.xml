@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" type="Codilar\EmployeeDetails\Model\EmployeeReporitory"/>
+    <preference for="Codilar\EmployeeDetails\Api\Data\EmployeeDetailsInterface" type="Codilar\EmployeeDetails\Model\Employee"/>
+    <preference for="Codilar\EmployeeDetails\Api\Data\EmployeeDetailsSearchResultInterface" type="Codilar\EmployeeDetails\Model\EmployeeDetailsSearchResult"/>
+    <preference for="Magento\Catalog\Model\Product" type="Codilar\EmployeeDetails\Model\Product"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="employee_listing_data_source" xsi:type="string">MyCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MyCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">employee_info</argument>
+            <argument name="resourceModel" xsi:type="string">Codilar\EmployeeDetails\Model\ResourceModel\Employee</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ImageUpload" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">codilar/tmp/employee</argument>
+            <argument name="basePath" xsi:type="string">codilar/employee</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="png" xsi:type="string">image/png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Codilar\EmployeeDetails\Controller\Adminhtml\Employee\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">ImageUpload</argument>
+        </arguments>
+    </type>
+</config>

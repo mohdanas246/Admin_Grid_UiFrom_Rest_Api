@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V2/codilar/employeedetails/:id" method="GET">
+        <service class="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V2/codilar/employeedetails/" method="GET">
+        <service class="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V2/codilar/employeedetails/:employeeId" method="DELETE">
+        <service class="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+        <route url="/V2/codilar/employeedetails/" method="POST">
+        <service class="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V2/codilar/employeedetails/" method="PUT">
+        <service class="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!--    <route url="/V2/codilar/employeedetails/" method="POST">-->
+    <!--        <service class="Codilar\EmployeeDetails\Api\EmployeeDetailsRepositoryInterface" method="restSave"/>-->
+    <!--        <resources>-->
+    <!--            <resource ref="anonymous"/>-->
+    <!--        </resources>-->
+    <!--    </route>-->
+</routes>
