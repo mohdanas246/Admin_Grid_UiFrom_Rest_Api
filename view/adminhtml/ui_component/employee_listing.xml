@@ -38,18 +38,22 @@
             </item>
         </argument>
     </dataSource>
+
     <listingToolbar name="listing_top">
         <settings>
             <sticky>true</sticky>
         </settings>
         <bookmark name="bookmarks"/>
         <columnsControls name="columns_controls"/>
-        <massaction name="listing_massaction">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
-                </item>
-            </argument>
+        <exportButton name="export_button"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>-->
+<!--                </item>-->
+<!--            </argument>-->
             <action name="delete">
                 <argument name="data" xsi:type="array">
                     <item name="config" xsi:type="array">
@@ -63,7 +67,56 @@
                     </item>
                 </argument>
             </action>
+            <action name="subscribe">
+                <settings>
+                    <url path="customer/index/massSubscribe"/>
+                    <type>subscribe</type>
+                    <label translate="true">Subscribe to Newsletter</label>
+                </settings>
+            </action>
+            <action name="unsubscribe">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to unsubscribe the selected customers from the newsletter?</message>
+                        <title translate="true">Unsubscribe from Newsletter</title>
+                    </confirm>
+                    <url path="customer/index/massUnsubscribe"/>
+                    <type>unsubscribe</type>
+                    <label translate="true">Unsubscribe from Newsletter</label>
+                </settings>
+            </action>
+            <action name="assign_to_group">
+                <settings>
+                    <type>assign_to_group</type>
+                    <label translate="true">Assign a Customer Group</label>
+                    <actions class="Magento\Customer\Ui\Component\MassAction\Group\Options"/>
+                </settings>
+            </action>
+            <action name="edit">
+                <settings>
+                    <callback>
+                        <target>editSelected</target>
+                        <provider>employee_listing.employee_listing.employee_listing_columns_editor</provider>
+                    </callback>
+                    <type>edit</type>
+                    <label translate="true">Edit</label>
+                </settings>
+            </action>
         </massaction>
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
 
         <paging name="listing_paging"/>
     </listingToolbar>

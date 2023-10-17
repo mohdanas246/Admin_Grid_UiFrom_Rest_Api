@@ -8,13 +8,13 @@ interface EmployeeDetailsRepositoryInterface
 {
     /**
      * @param int $id
-     * @return EmployeeDetailsInterface
+     * @return \Codilar\EmployeeDetails\Api\Data\EmployeeDetailsInterface
      */
     public function getById($id);
 
     /**
      * @param EmployeeDetailsInterface $employee
-     * @return string
+     * @return EmployeeDetailsInterface
      */
     public function save(EmployeeDetailsInterface $employee);
 
