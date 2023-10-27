@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"-->
+<!--      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">-->
+<!--    <body>-->
+<!--        &lt;!&ndash;add custom block &ndash;&gt;-->
+<!--        <referenceBlock name="order_additional_info">-->
+<!--            <block class="Codilar\EmployeeDetails\Block\Adminhtml\Order\View\View" name="sales_custom_view"-->
+<!--                   template="Codilar_EmployeeDetails::order/view/view.phtml"/>-->
+<!--        </referenceBlock>-->
+
+<!--    </body>-->
+<!--</page>-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_info">
+            <block class="Codilar\EmployeeDetails\Block\Adminhtml\Order\View\View" name="sales_order_view_custom_msg"
+                   template="order/view/view.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="order_additional_info">-->
+            <block class="Codilar\EmployeeDetails\Block\Adminhtml\Order\View\View" name="sales_custom_view"
+                   template="Codilar_EmployeeDetails::order/view/post.phtml"/>
+        </referenceBlock>
+    </body>
+</page>
