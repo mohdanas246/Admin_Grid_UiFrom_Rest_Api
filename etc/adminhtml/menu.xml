@@ -3,5 +3,6 @@
     <menu>
         <add id="Codilar_EmployeeDetails::employee" title="employees" module="Codilar_EmployeeDetails" sortOrder="51" resource="Codilar_EmployeeDetails::employee"/>
         <add id="Codilar_EmployeeDetails::details" title="Employees Details" module="Codilar_EmployeeDetails" sortOrder="10" action="uiform/employee/employeegrid" resource="Codilar_EmployeeDetails::employeedetails" parent="Codilar_EmployeeDetails::employee"/>
+        <add id="Codilar_EmployeeDetails::invoiced" title="Employees Invoiced" translate="title" module="Codilar_EmployeeDetails" sortOrder="30" parent="Magento_Reports::report_salesroot" action="uiform/report_sales/invoiced" resource="Codilar_EmployeeDetails::invoiced"/>
     </menu>
 </config>

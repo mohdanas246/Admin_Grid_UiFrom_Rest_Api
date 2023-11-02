@@ -17,6 +17,7 @@ class EmployeeGrid extends Action
     {
         $resultPage =  $this->_resultPageFactory->create();
         $resultPage->setActiveMenu('Codilar_EmployeeDetails::details');
+        $resultPage->setActiveMenu('Codilar_EmployeeDetails::invoiced');
         return $resultPage;
     }
 }
